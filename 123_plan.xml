@@ -1,0 +1,288 @@
+<mediawiki xmlns="http://www.mediawiki.org/xml/export-0.10/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mediawiki.org/xml/export-0.10/ http://www.mediawiki.org/xml/export-0.10.xsd" version="0.10" xml:lang="en">
+  <siteinfo>
+    <sitename>TNT Technical Knowledge base</sitename>
+    <dbname>vanswiki127</dbname>
+    <base>http://172.20.102.15/technical_wiki/index.php/Main_Page</base>
+    <generator>MediaWiki 1.27.1</generator>
+    <case>first-letter</case>
+    <namespaces>
+      <namespace key="-2" case="first-letter">Media</namespace>
+      <namespace key="-1" case="first-letter">Special</namespace>
+      <namespace key="0" case="first-letter" />
+      <namespace key="1" case="first-letter">Talk</namespace>
+      <namespace key="2" case="first-letter">User</namespace>
+      <namespace key="3" case="first-letter">User talk</namespace>
+      <namespace key="4" case="first-letter">TNT Technical Knowledge base</namespace>
+      <namespace key="5" case="first-letter">TNT Technical Knowledge base talk</namespace>
+      <namespace key="6" case="first-letter">File</namespace>
+      <namespace key="7" case="first-letter">File talk</namespace>
+      <namespace key="8" case="first-letter">MediaWiki</namespace>
+      <namespace key="9" case="first-letter">MediaWiki talk</namespace>
+      <namespace key="10" case="first-letter">Template</namespace>
+      <namespace key="11" case="first-letter">Template talk</namespace>
+      <namespace key="12" case="first-letter">Help</namespace>
+      <namespace key="13" case="first-letter">Help talk</namespace>
+      <namespace key="14" case="first-letter">Category</namespace>
+      <namespace key="15" case="first-letter">Category talk</namespace>
+    </namespaces>
+  </siteinfo>
+  <page>
+    <title>123 Plan</title>
+    <ns>0</ns>
+    <id>2156</id>
+    <revision>
+      <id>6196</id>
+      <parentid>6195</parentid>
+      <timestamp>2018-01-05T21:12:43Z</timestamp>
+      <contributor>
+        <username>Ka038276</username>
+        <id>56</id>
+      </contributor>
+      <comment>/* SDP changes */</comment>
+      <model>wikitext</model>
+      <format>text/x-wiki</format>
+      <text xml:space="preserve" bytes="8886">&lt;!--Remove categories not applicable to the document you are creating. Remember that ALL PAGES MUST HAVE AT LEAST 1 CATEGORY--&gt;
+[[Category: Charging]]
+	[[Category: SDP]]
+	[[Category: AIR]]
+[[Category: Mediation]]
+[[Category: Products]]
+	[[Category: CAIN]]
+	[[Category: BEplus]]
+	[[Category: UMM]]
+[[Category: Commercial]]
+	[[Category: Prepaid]]
+
+==Version Control==
+{| class=&quot;wikitable&quot;
+|-
+! Author !! Date !! Version !! Comments
+|-
+| Vishnu Bridgelalsingh || Feb-2-2016 || v1 || Template
+|-
+| Satya Maraj || Nov-8-2017 || v2 || First draft
+|}
+
+
+=INTRODUCTION=
+&lt;blockquote&gt;
+Launch Date: 6th November, 2017 &lt;br /&gt;
+CR#: &lt;br /&gt;
+Change template: &lt;!-- Attach Change template documents here --&gt;&lt;br /&gt;
+Sign Off document: [[File:123 Unlimited Sign Off.docx]]&lt;br /&gt;
+
+The 123 promo allows prepaid subscribers to make calls at a fixed cost. See figure below. Subs also have the option of opting out by dialing *123# to revert to the previous rates. &lt;br/&gt;
+
+
+[[File:123_New_Rates.png|border]]
+&lt;/blockquote&gt;
+
+=TECHNICAL DETAILS=
+&lt;blockquote&gt;
+==Process flow==
+&lt;blockquote&gt;
+
+# By default, all Prepaid SCs point to Rating 11 which has the new rates
+# Subs who prefer to pay per min can now opt out of the promo by dialing *123# or through the 123 UNTLD Promo option on *323#
+# CAIN Plan 16164 is activated. A refill profile is sent to the AIR to perform a SC change [300 &gt; 301, 445 &gt; 444, 128 &gt; 130, other prepaid &gt; 116]
+# The new SC points to Rating 13 which has the old ($1.29/min)rates
+# If a sub wishes to opt back in to the promo they can do so by dialing *123# or through the 123 UNTLD Promo option on *323#
+# CAIN Plan 16158 is activated. A refill profile is sent to the AIR to perform the SC change [301 &gt; 300, 444 &gt; 445, 130 &gt; 128, 116 &gt; 107]
+&lt;/blockquote&gt;
+
+==Set up==&lt;!-- Remove any sections in here that do not apply --&gt;
+&lt;blockquote&gt;
+===AIR changes===
+&lt;blockquote&gt;
+&lt;br/&gt; Two new Refill Profiles (OPTI, OPTO) were created for this promo. They were added to the Refill tariff with a new Refill Segmentation ID to perform the SC change when the sub opts in to or out of the promo.
+
+[[File:AIR_SC_Change.jpeg|border]] &lt;br /&gt;
+&lt;/blockquote&gt;
+
+===SDP changes===
+&lt;blockquote&gt;
+
+Rating 11 was set up as the default tariff with the rate/call. Rating 13 was created as the opt out tariff for subs who prefer per min charging.
+
+====Rating Tariff====
+
+The Digi-digi rate was set up by charging a fee of $1 at the start of the call (the first second) and the rest of the call would be free. &lt;br/&gt;
+
+[[File:123_Digi-digi.jpg|border]]
+
+The Digi-bmobile and digi-landline rate was set up by charging a fee of $2 at the start of the call (the first second) and the rest of the call would be free. &lt;br/&gt;
+
+[[File:123_Digi-bmobile.jpg|border]]
+
+The Digi-intl (Zone 1 and Zone 2) rate was set up by charging a fee of $3 at the start of the call (the first second) and the rest of the call would be free. &lt;br/&gt;
+
+[[File:123_Zone1.jpg|border]] &lt;br/&gt;
+
+[[File:123_Zone2.jpg|border]]
+
+The Digi-intl (Zone 3 and Zone 4) rate was set up by charging a fee of $3 and $9 respectively at the start of the call (the first second) and the rest of the call would be free. &lt;br/&gt;
+
+[[File:123_Zone3_4.jpg|border]]
+
+SMS on-net, off-net and to international were all set up to charge $0.50 &lt;br /&gt;
+
+[[File:123_SMS.jpg|border]]
+
+====Ussd Text Messages Tariff====
+&lt;blockquote&gt;
+
+SoCNs were set up to be sent to subs on the 123 promo informing them of the per call rate.
+
+[[File:123_SOCNs.jpeg|border]] &lt;br /&gt;
+
+* Digi-Digi Calls ($1)
+''Your call is connecting. Don't forget! Talk UNLIMITED to any Digicel number for just TTD1 per call with our new 123 Unltd Promo! To Opt Out dial *123#.''
+
+* Digi-Bmobile ($2)
+''Your call is connecting. Don't forget! Talk UNLTD to any Bmobile number for TTD2/call with our 123 Unltd Promo! To Opt Out dial *123#.''
+
+*Digi-Flow ($2)
+''Your call is connecting. Don't forget! Talk UNLTD to any Flow number for TTD2/call with our 123 Unltd Promo! To Opt Out dial *123#.''
+
+* Digi-Fixed ($2)
+''Your call is connecting. Don't forget! Talk UNLTD to any other local network for TTD2/call with our 123 Unltd Promo! To Opt Out dial *123#.''
+
+* Zone 1, Zone 2 ($3)
+''Your call is connecting. Don't forget! Talk UNLIMITED to any Int'l number for as low as TTD3/call with our new 123 Unltd Promo! To Opt Out dial *123#.''
+&lt;/blockquote&gt;
+
+====Announcements====
+&lt;blockquote&gt;
+A new announcement ID was set up for opted out SCs. The opted in SCs are now receiving a new announcement for Account Balance low when balance is less than $2. &lt;br/&gt;
+[[File:123_announcement.PNG|border]]
+
+&lt;br/&gt;This value was changed on the opted in SCs as well. &lt;br/&gt;
+[[File:123_announcement_balance.PNG|border]]
+&lt;/blockquote&gt;
+
+====Low Balance Notification====
+&lt;blockquote&gt;
+To cater for the LBNA messages below $2 for opted in subs, the Notification value had to be updated on these SCs. &lt;br/&gt;
+[[File:123_notification_balance.PNG|border]]
+&lt;/blockquote&gt;
+
+&lt;/blockquote&gt;
+
+===CAIN changes===
+&lt;blockquote&gt;
+&lt;u&gt;'''Opt Out Plan''' &lt;/u&gt; 
+*CAIN plan 16164 (123 Unlimited Promo Opt-out) was created, which sends refill profile OPTO to the AIR
+*This plan was filtered to block the Opt-Out Service Classes (116, 130, 301, 444).
+&lt;u&gt;'''Opt In Plan''' &lt;/u&gt;
+*CAIN plan 16158 (123 Unlimited Promo Opt-in) was created, which sends refill profile OPTI to the AIR
+*This plan was filtered to only allow activation for the Opt-Out Service Classes (116, 130, 301, 444).
+&lt;/blockquote&gt;
+
+===UMM changes===
+&lt;blockquote&gt;
+
+For this promotion a new UMM menu had to be created. This menu was created specifically to opt-in or opt-out of the 123 Unlimited Promotion. The code used to access this UMM menu was *123#. The option to opt-in or opt-out of the 123 Unlimited Promotion was also added to the *323# menu.
+
+'''&lt;u&gt; UMM Menu *123# &lt;/u&gt;''' &lt;br /&gt;
+
+[[File:Menu_123.jpeg]] &lt;br /&gt;
+
+Logic:
+* If subscriber has opted-out of the 123 Unlimited Promotion (they are on one of the service classes in service group 35) and dials *123#, the only plan they should see to activate is the opt-in plan (16158).
+* If the subscriber is opted-in (default) and dials *123#, the only plan they should see to activate is the opt-out plan (16164).
+
+'''&lt;u&gt; UMM Menu *123#/*323# Definitions &lt;/u&gt;''' &lt;br /&gt;
+
+[[File:123_Definitions.jpeg]] &lt;br /&gt;
+
+'''&lt;u&gt; UMM Menu *123#/*323# Messages&lt;/u&gt;''' &lt;br /&gt;
+
+[[File:123_Messages.jpeg]] &lt;br /&gt;
+
+'''&lt;u&gt; UMM Menu *323# &lt;/u&gt;''' &lt;br /&gt;
+Subscriber dials *323# while opted-out
+[[File:Menu_323(a).jpeg]] &lt;br /&gt;
+
+Subscriber dials *323# while opted-in
+[[File:Menu_323(b).jpeg]] &lt;br /&gt;
+
+Item Refs
+[[File:Menu_323(c).jpeg]] &lt;br /&gt;
+
+&lt;/blockquote&gt;
+
+===BE changes===
+&lt;blockquote&gt;
+The tt.xml file was edited as follows:
+* The opt-out service classes (116, 130, 301 &amp; 444) were pulled out of their initial service groups and placed into a new service group to control the menu options seen when the subscriber is currently opted-in or opted out.
+
+[[File:123_BE_tt.jpeg]]
+
+&lt;/blockquote&gt;
+
+===LBNA changes===
+&lt;blockquote&gt;
+A new LBNA message was configured for all subscribers opted in to the 123 Unlimited promotion. The LBNA threshold was set to TTD 2.00.
+ 
+[[File:123_LBNA_Services.jpeg]] &lt;br /&gt;
+
+The LBNA message configured can be seen below.
+[[File:123_LBNA_Messages.jpeg]] &lt;br /&gt;
+
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+&lt;/blockquote&gt;
+
+=LAUNCH MOP=
+&lt;blockquote&gt;
+
+'''SDP'''
+* Make Rating tariffs 11 (new rates) &amp; 13 (copy of 11 with old rates)  and USSD tariff 0 (SOCNs and EOCNs) live (already set to go live @ midnight)
+* Ensure tariffs went live after midnight
+* Add ID 1057 to “Account too low for a call” announcement on announcement ID 2 in SMA
+
+'''AIR'''
+* Ensure Refill and Premium Refill tariffs go live
+
+'''UCIP'''
+Run Service Class Change job with tariff12_serviceClassChange file attached 
+
+'''CAIN'''
+* Remove SC 6, 45 &amp; 86 restrictions from Opt-in (16158 (123 PAYGO Rates Opt-in Plan)) and Opt-out (16164 (123 PAYGO Rates Opt-out Plan)) plans on cain
+* Add SC filter &quot;Trinidad: from 1 to 1000&quot; to 16164 (123 PAYGO Rates Opt-out Plan)
+
+'''UMM'''
+* log in to app2vm (172.20.5.136)
+* su - umm
+* cp holding/20171102_123_PAYGO/menu-123.xml config/markets/TT/
+* cp holding/20171102_123_PAYGO/menu-323.xml config/markets/TT/menu-323.xml
+* cp holding/20171102_123_PAYGO/definitions.xml config/markets/TT/definitions.xml
+* cp holding/20171102_123_PAYGO/messages-EN.xml config/markets/TT/messages/messages-EN.xml
+Run sync script
+* cd ~
+* cd /apps/umm/scripts/umm_config_sync/
+* ./do_umm_config_sync.sh
+* type yes
+
+'''BE+'''
+* log in to app1vm (172.20.5.135)
+* su - beplus
+* cp holding/20171102_123_PAYGO/tt.xml balanceService/config/markets-config/TT/tt.xml
+* repeat for app3vm (172.20.12.68)
+
+'''LBNA'''
+* log in to app3vm (172.20.12.68)
+* su - lbna
+* cp holding/20171102_PAYGO_123_lbna/lbna-services.xml core/conf/lbna-services.xml
+
+&lt;/blockquote&gt;
+
+=ATP=
+&lt;blockquote&gt;
+[[File:123 PAYGO Post launch ATP.xlsx]]&lt;br /&gt;
+[[File:123 PAYGO Commercial Post launch ATP.xlsx]]&lt;br /&gt;
+&lt;/blockquote&gt;</text>
+      <sha1>eowqbfp54liyhym8i2tmq3is94nvk44</sha1>
+    </revision>
+  </page>
+</mediawiki>
